@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/stomp.wav-5cbd43942e7e3c6b4eed42c50cb61fb7.sample"
+
+[deps]
+
+source_file="res://scenes/components/enemy_basic/body/audios/stomp.wav"
+dest_files=[ "res://.import/stomp.wav-5cbd43942e7e3c6b4eed42c50cb61fb7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

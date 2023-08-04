@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/components/ui/hud/weapon_absorb/HUDWeaponAbsorb.gd" type="Script" id=1]
+[ext_resource path="res://fonts/intro.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scenes/components/ui/hud/textures/hud.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 11
+font_data = ExtResource( 2 )
+
+[node name="HUDWeaponAbsorb" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Status" type="Polygon2D" parent="."]
+color = Color( 1, 1, 1, 0 )
+polygon = PoolVector2Array( 24, 0, 16, 8, 8, 40, 16, 48, 80, 48, 88, 40, 80, 8, 72, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Hud" type="Sprite" parent="Status"]
+position = Vector2( 48, 24 )
+scale = Vector2( 0.666667, 1 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Key" type="Label" parent="."]
+margin_right = 96.0
+margin_bottom = 32.0
+custom_colors/font_color = Color( 0.4, 0.133333, 0.129412, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Q"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Hint" type="Label" parent="."]
+margin_top = 27.0
+margin_right = 96.0
+margin_bottom = 43.0
+custom_colors/font_color = Color( 0.4, 0.133333, 0.129412, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Поглотить"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true
+}

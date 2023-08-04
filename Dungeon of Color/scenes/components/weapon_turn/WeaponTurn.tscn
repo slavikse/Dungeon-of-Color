@@ -1,0 +1,81 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/components/weapon_turn/WeaponTurn.gd" type="Script" id=1]
+[ext_resource path="res://scenes/components/weapon_turn/textures/rotate.png" type="Texture" id=2]
+[ext_resource path="res://scenes/components/weapon_turn/audios/machine_rotation.ogg" type="AudioStream" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 40.0
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Texture:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "rotate"
+length = 30.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Texture:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 30 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[node name="WeaponTurn" type="Area2D"]
+z_index = -1
+collision_layer = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Texture" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Reload" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="Rotate" type="AnimationPlayer" parent="."]
+autoplay = "rotate"
+anims/RESET = SubResource( 2 )
+anims/rotate = SubResource( 3 )
+
+[node name="Rotation" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = -40.0
+pitch_scale = 0.5
+autoplay = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[connection signal="area_entered" from="." to="." method="_on_WeaponTurn_area_entered"]
+[connection signal="timeout" from="Reload" to="." method="_on_Reload_timeout"]

@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/components/common/bullet/CommonBullet.gd" type="Script" id=1]
+[ext_resource path="res://scenes/components/common/bullet/area_2d/_BulletArea2D.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/components/common/bullet/audios/shot.wav" type="AudioStream" id=3]
+[ext_resource path="res://scenes/components/common/bullet/audios/splitting.wav" type="AudioStream" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 8.0
+
+[sub_resource type="ParticlesMaterial" id=2]
+emission_shape = 1
+emission_sphere_radius = 2.0
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+radial_accel = 1000.0
+scale = 2.0
+
+[node name="CommonBullet" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 0
+gravity_scale = 0.0
+can_sleep = false
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TimeLimit" type="Timer" parent="."]
+one_shot = true
+
+[node name="BulletArea2D" parent="." instance=ExtResource( 2 )]
+
+[node name="Destruction" type="Particles2D" parent="."]
+emitting = false
+amount = 20
+lifetime = 0.1
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Shot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = -2.0
+pitch_scale = 3.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Splitting" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = -6.0
+pitch_scale = 5.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[connection signal="timeout" from="TimeLimit" to="." method="_on_TimeLimit_timeout"]
+[connection signal="destroy" from="BulletArea2D" to="." method="_on_BulletArea2D_destroy"]

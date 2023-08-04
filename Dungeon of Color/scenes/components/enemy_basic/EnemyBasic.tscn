@@ -1,0 +1,104 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scenes/components/enemy_basic/EnemyBasic.gd" type="Script" id=1]
+[ext_resource path="res://scenes/components/enemy_basic/body/EnemyBody.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/components/enemy_basic/HP/EnemyHP.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/components/enemy_basic/field_view/EnemyFieldView.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/components/enemy_basic/gun/EnemyGun.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/components/enemy_basic/audios/destroyed.wav" type="AudioStream" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 32 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 2
+emission_box_extents = Vector3( 30, 30, 1 )
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 5.0
+scale_random = 0.2
+
+[sub_resource type="ParticlesMaterial" id=2]
+emission_shape = 2
+emission_box_extents = Vector3( 30, 30, 1 )
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 5.0
+scale_random = 0.2
+
+[node name="EnemyBasic" type="KinematicBody2D"]
+collision_layer = 8
+collision_mask = 13
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_editor_description_": "Collision для блокирования пути стенами."
+}
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="EnemyBody" parent="." instance=ExtResource( 2 )]
+collision_mask = 7
+__meta__ = {
+"_edit_lock_": true,
+"_editor_description_": "Для определения пересечения."
+}
+
+[node name="EnemyHP" parent="." instance=ExtResource( 3 )]
+
+[node name="EnemyGun" parent="." instance=ExtResource( 5 )]
+position = Vector2( 0, -32 )
+
+[node name="EnemyFieldView" parent="." instance=ExtResource( 4 )]
+
+[node name="Make" type="Particles2D" parent="."]
+emitting = false
+amount = 60
+lifetime = 0.2
+one_shot = true
+explosiveness = 1.0
+local_coords = false
+process_material = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true,
+"_editor_description_": ""
+}
+
+[node name="Destroy" type="Particles2D" parent="."]
+emitting = false
+amount = 60
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+local_coords = false
+process_material = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true,
+"_editor_description_": ""
+}
+
+[node name="Destroyed" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+volume_db = -25.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[connection signal="apply_movement_velocity" from="EnemyBody" to="." method="_on_EnemyBody_apply_movement_velocity"]
+[connection signal="change_direction_degrees" from="EnemyBody" to="." method="_on_EnemyBody_change_direction_degrees"]
+[connection signal="check_enemy_destroyed" from="EnemyBody" to="." method="_on_EnemyBody_check_enemy_destroyed"]
+[connection signal="enemy_destroyed" from="EnemyBody" to="." method="_on_EnemyBody_enemy_destroyed"]
+[connection signal="check_player_visibility" from="EnemyFieldView" to="EnemyBody" method="_on_EnemyFieldView_check_player_visibility"]

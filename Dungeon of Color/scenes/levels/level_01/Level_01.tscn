@@ -1,0 +1,1588 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://scenes/components/player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/components/ui/hud/UIHUD.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/components/ui/boost_menu/UIBoostMenu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/components/floors/FloorRoom.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/components/walls/stone/StoneWall.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/components/weapon/Weapon.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/components/rooms/RoomSquare01.tscn" type="PackedScene" id=7]
+[ext_resource path="res://fonts/intro.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://scenes/components/rooms/RoomRectangle01.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/components/enemy_basic/EnemyBasic.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/components/rooms/RoomCircle01.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/components/walls/destructable/DestructableWall.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/components/rooms/RoomSquare02.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/components/weapon_turn/WeaponTurn.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/components/rooms/RoomRectangle02.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/components/exit/Exit.tscn" type="PackedScene" id=16]
+
+[sub_resource type="DynamicFont" id=1]
+size = 14
+font_data = ExtResource( 8 )
+
+[node name="Level" type="Node2D"]
+__meta__ = {
+"_edit_lock_": true,
+"_edit_vertical_guides_": [  ]
+}
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 584, 668 )
+
+[node name="Floors" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Floor1" type="Node2D" parent="Floors"]
+position = Vector2( -3616, 296 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Floor1" type="Node2D" parent="Floors/Floor1"]
+position = Vector2( 5528, 3248 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Floor1" type="Node2D" parent="Floors/Floor1/Floor1"]
+position = Vector2( -6720, -4480 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor1/Floor1/Floor1" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor1/Floor1/Floor1" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor1/Floor1/Floor1" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor1/Floor1/Floor1" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor2" type="Node2D" parent="Floors/Floor1/Floor1"]
+position = Vector2( -5696, -4480 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor1/Floor1/Floor2" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor1/Floor1/Floor2" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor1/Floor1/Floor2" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor1/Floor1/Floor2" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor3" type="Node2D" parent="Floors/Floor1/Floor1"]
+position = Vector2( -6720, -3456 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor1/Floor1/Floor3" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor1/Floor1/Floor3" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor1/Floor1/Floor3" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor1/Floor1/Floor3" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor4" type="Node2D" parent="Floors/Floor1/Floor1"]
+position = Vector2( -5696, -3456 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor1/Floor1/Floor4" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor1/Floor1/Floor4" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor1/Floor1/Floor4" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor1/Floor1/Floor4" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor2" type="Node2D" parent="Floors/Floor1"]
+position = Vector2( 7576, 3248 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Floor1" type="Node2D" parent="Floors/Floor1/Floor2"]
+position = Vector2( -6720, -4480 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor1/Floor2/Floor1" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor1/Floor2/Floor1" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor1/Floor2/Floor1" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor1/Floor2/Floor1" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor2" type="Node2D" parent="Floors/Floor1/Floor2"]
+position = Vector2( -5696, -4480 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor1/Floor2/Floor2" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor1/Floor2/Floor2" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor1/Floor2/Floor2" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor1/Floor2/Floor2" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor3" type="Node2D" parent="Floors/Floor1/Floor2"]
+position = Vector2( -6720, -3456 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor1/Floor2/Floor3" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor1/Floor2/Floor3" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor1/Floor2/Floor3" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor1/Floor2/Floor3" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor4" type="Node2D" parent="Floors/Floor1/Floor2"]
+position = Vector2( -5696, -3456 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor1/Floor2/Floor4" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor1/Floor2/Floor4" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor1/Floor2/Floor4" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor1/Floor2/Floor4" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor3" type="Node2D" parent="Floors/Floor1"]
+position = Vector2( 5528, 5296 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Floor1" type="Node2D" parent="Floors/Floor1/Floor3"]
+position = Vector2( -6720, -4480 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor1/Floor3/Floor1" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor1/Floor3/Floor1" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor1/Floor3/Floor1" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor1/Floor3/Floor1" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor2" type="Node2D" parent="Floors/Floor1/Floor3"]
+position = Vector2( -5696, -4480 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor1/Floor3/Floor2" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor1/Floor3/Floor2" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor1/Floor3/Floor2" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor1/Floor3/Floor2" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor3" type="Node2D" parent="Floors/Floor1/Floor3"]
+position = Vector2( -6720, -3456 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor1/Floor3/Floor3" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor1/Floor3/Floor3" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor1/Floor3/Floor3" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor1/Floor3/Floor3" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor4" type="Node2D" parent="Floors/Floor1/Floor3"]
+position = Vector2( -5696, -3456 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor1/Floor3/Floor4" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor1/Floor3/Floor4" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor1/Floor3/Floor4" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor1/Floor3/Floor4" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor4" type="Node2D" parent="Floors/Floor1"]
+position = Vector2( 7576, 5296 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Floor1" type="Node2D" parent="Floors/Floor1/Floor4"]
+position = Vector2( -6720, -4480 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor1/Floor4/Floor1" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor1/Floor4/Floor1" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor1/Floor4/Floor1" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor1/Floor4/Floor1" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor2" type="Node2D" parent="Floors/Floor1/Floor4"]
+position = Vector2( -5696, -4480 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor1/Floor4/Floor2" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor1/Floor4/Floor2" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor1/Floor4/Floor2" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor1/Floor4/Floor2" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor3" type="Node2D" parent="Floors/Floor1/Floor4"]
+position = Vector2( -6720, -3456 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor1/Floor4/Floor3" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor1/Floor4/Floor3" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor1/Floor4/Floor3" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor1/Floor4/Floor3" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor4" type="Node2D" parent="Floors/Floor1/Floor4"]
+position = Vector2( -5696, -3456 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor1/Floor4/Floor4" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor1/Floor4/Floor4" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor1/Floor4/Floor4" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor1/Floor4/Floor4" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor2" type="Node2D" parent="Floors"]
+position = Vector2( 480, 296 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Floor1" type="Node2D" parent="Floors/Floor2"]
+position = Vector2( 5528, 3248 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Floor1" type="Node2D" parent="Floors/Floor2/Floor1"]
+position = Vector2( -6720, -4480 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor2/Floor1/Floor1" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor2/Floor1/Floor1" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor2/Floor1/Floor1" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor2/Floor1/Floor1" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor2" type="Node2D" parent="Floors/Floor2/Floor1"]
+position = Vector2( -5696, -4480 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor2/Floor1/Floor2" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor2/Floor1/Floor2" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor2/Floor1/Floor2" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor2/Floor1/Floor2" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor3" type="Node2D" parent="Floors/Floor2/Floor1"]
+position = Vector2( -6720, -3456 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor2/Floor1/Floor3" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor2/Floor1/Floor3" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor2/Floor1/Floor3" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor2/Floor1/Floor3" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor4" type="Node2D" parent="Floors/Floor2/Floor1"]
+position = Vector2( -5696, -3456 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor2/Floor1/Floor4" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor2/Floor1/Floor4" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor2/Floor1/Floor4" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor2/Floor1/Floor4" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor2" type="Node2D" parent="Floors/Floor2"]
+position = Vector2( 7576, 3248 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Floor1" type="Node2D" parent="Floors/Floor2/Floor2"]
+position = Vector2( -6720, -4480 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor2/Floor2/Floor1" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor2/Floor2/Floor1" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor2/Floor2/Floor1" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor2/Floor2/Floor1" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor2" type="Node2D" parent="Floors/Floor2/Floor2"]
+position = Vector2( -5696, -4480 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor2/Floor2/Floor2" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor2/Floor2/Floor2" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor2/Floor2/Floor2" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor2/Floor2/Floor2" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor3" type="Node2D" parent="Floors/Floor2/Floor2"]
+position = Vector2( -6720, -3456 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor2/Floor2/Floor3" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor2/Floor2/Floor3" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor2/Floor2/Floor3" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor2/Floor2/Floor3" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor4" type="Node2D" parent="Floors/Floor2/Floor2"]
+position = Vector2( -5696, -3456 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor2/Floor2/Floor4" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor2/Floor2/Floor4" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor2/Floor2/Floor4" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor2/Floor2/Floor4" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor3" type="Node2D" parent="Floors/Floor2"]
+position = Vector2( 5528, 5296 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Floor1" type="Node2D" parent="Floors/Floor2/Floor3"]
+position = Vector2( -6720, -4480 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor2/Floor3/Floor1" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor2/Floor3/Floor1" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor2/Floor3/Floor1" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor2/Floor3/Floor1" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor2" type="Node2D" parent="Floors/Floor2/Floor3"]
+position = Vector2( -5696, -4480 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor2/Floor3/Floor2" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor2/Floor3/Floor2" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor2/Floor3/Floor2" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor2/Floor3/Floor2" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor3" type="Node2D" parent="Floors/Floor2/Floor3"]
+position = Vector2( -6720, -3456 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor2/Floor3/Floor3" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor2/Floor3/Floor3" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor2/Floor3/Floor3" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor2/Floor3/Floor3" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor4" type="Node2D" parent="Floors/Floor2/Floor3"]
+position = Vector2( -5696, -3456 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor2/Floor3/Floor4" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor2/Floor3/Floor4" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor2/Floor3/Floor4" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor2/Floor3/Floor4" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor4" type="Node2D" parent="Floors/Floor2"]
+position = Vector2( 7576, 5296 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Floor1" type="Node2D" parent="Floors/Floor2/Floor4"]
+position = Vector2( -6720, -4480 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor2/Floor4/Floor1" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor2/Floor4/Floor1" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor2/Floor4/Floor1" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor2/Floor4/Floor1" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor2" type="Node2D" parent="Floors/Floor2/Floor4"]
+position = Vector2( -5696, -4480 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor2/Floor4/Floor2" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor2/Floor4/Floor2" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor2/Floor4/Floor2" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor2/Floor4/Floor2" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor3" type="Node2D" parent="Floors/Floor2/Floor4"]
+position = Vector2( -6720, -3456 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor2/Floor4/Floor3" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor2/Floor4/Floor3" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor2/Floor4/Floor3" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor2/Floor4/Floor3" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor4" type="Node2D" parent="Floors/Floor2/Floor4"]
+position = Vector2( -5696, -3456 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor2/Floor4/Floor4" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor2/Floor4/Floor4" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor2/Floor4/Floor4" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor2/Floor4/Floor4" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor3" type="Node2D" parent="Floors"]
+position = Vector2( 480, 4392 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Floor1" type="Node2D" parent="Floors/Floor3"]
+position = Vector2( 5528, 3248 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Floor1" type="Node2D" parent="Floors/Floor3/Floor1"]
+position = Vector2( -6720, -4480 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor3/Floor1/Floor1" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor3/Floor1/Floor1" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor3/Floor1/Floor1" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor3/Floor1/Floor1" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor2" type="Node2D" parent="Floors/Floor3/Floor1"]
+position = Vector2( -5696, -4480 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor3/Floor1/Floor2" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor3/Floor1/Floor2" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor3/Floor1/Floor2" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor3/Floor1/Floor2" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor3" type="Node2D" parent="Floors/Floor3/Floor1"]
+position = Vector2( -6720, -3456 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor3/Floor1/Floor3" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor3/Floor1/Floor3" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor3/Floor1/Floor3" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor3/Floor1/Floor3" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor4" type="Node2D" parent="Floors/Floor3/Floor1"]
+position = Vector2( -5696, -3456 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor3/Floor1/Floor4" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor3/Floor1/Floor4" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor3/Floor1/Floor4" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor3/Floor1/Floor4" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor2" type="Node2D" parent="Floors/Floor3"]
+position = Vector2( 7576, 3248 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Floor1" type="Node2D" parent="Floors/Floor3/Floor2"]
+position = Vector2( -6720, -4480 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor3/Floor2/Floor1" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor3/Floor2/Floor1" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor3/Floor2/Floor1" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor3/Floor2/Floor1" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor2" type="Node2D" parent="Floors/Floor3/Floor2"]
+position = Vector2( -5696, -4480 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor3/Floor2/Floor2" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor3/Floor2/Floor2" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor3/Floor2/Floor2" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor3/Floor2/Floor2" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor3" type="Node2D" parent="Floors/Floor3/Floor2"]
+position = Vector2( -6720, -3456 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor3/Floor2/Floor3" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor3/Floor2/Floor3" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor3/Floor2/Floor3" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor3/Floor2/Floor3" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor4" type="Node2D" parent="Floors/Floor3/Floor2"]
+position = Vector2( -5696, -3456 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor3/Floor2/Floor4" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor3/Floor2/Floor4" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor3/Floor2/Floor4" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor3/Floor2/Floor4" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor4" type="Node2D" parent="Floors"]
+position = Vector2( -3616, 4392 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Floor1" type="Node2D" parent="Floors/Floor4"]
+position = Vector2( 5528, 3248 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Floor1" type="Node2D" parent="Floors/Floor4/Floor1"]
+position = Vector2( -6720, -4480 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor4/Floor1/Floor1" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor4/Floor1/Floor1" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor4/Floor1/Floor1" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor4/Floor1/Floor1" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor2" type="Node2D" parent="Floors/Floor4/Floor1"]
+position = Vector2( -5696, -4480 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor4/Floor1/Floor2" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor4/Floor1/Floor2" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor4/Floor1/Floor2" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor4/Floor1/Floor2" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor3" type="Node2D" parent="Floors/Floor4/Floor1"]
+position = Vector2( -6720, -3456 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor4/Floor1/Floor3" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor4/Floor1/Floor3" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor4/Floor1/Floor3" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor4/Floor1/Floor3" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor4" type="Node2D" parent="Floors/Floor4/Floor1"]
+position = Vector2( -5696, -3456 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor4/Floor1/Floor4" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor4/Floor1/Floor4" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor4/Floor1/Floor4" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor4/Floor1/Floor4" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor2" type="Node2D" parent="Floors/Floor4"]
+position = Vector2( 7576, 3248 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Floor1" type="Node2D" parent="Floors/Floor4/Floor2"]
+position = Vector2( -6720, -4480 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor4/Floor2/Floor1" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor4/Floor2/Floor1" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor4/Floor2/Floor1" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor4/Floor2/Floor1" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor2" type="Node2D" parent="Floors/Floor4/Floor2"]
+position = Vector2( -5696, -4480 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor4/Floor2/Floor2" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor4/Floor2/Floor2" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor4/Floor2/Floor2" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor4/Floor2/Floor2" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor3" type="Node2D" parent="Floors/Floor4/Floor2"]
+position = Vector2( -6720, -3456 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor4/Floor2/Floor3" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor4/Floor2/Floor3" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor4/Floor2/Floor3" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor4/Floor2/Floor3" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor4" type="Node2D" parent="Floors/Floor4/Floor2"]
+position = Vector2( -5696, -3456 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FloorRoomWall1" parent="Floors/Floor4/Floor2/Floor4" instance=ExtResource( 4 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floors/Floor4/Floor2/Floor4" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floors/Floor4/Floor2/Floor4" instance=ExtResource( 4 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floors/Floor4/Floor2/Floor4" instance=ExtResource( 4 )]
+position = Vector2( -64, -64 )
+
+[node name="Rooms" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Hint1" type="Node2D" parent="Rooms"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Rule" type="Label" parent="Rooms/Hint1"]
+margin_left = 808.0
+margin_top = 592.0
+margin_right = 879.0
+margin_bottom = 679.0
+custom_colors/font_color = Color( 0.980392, 0.980392, 0.980392, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Можно надеть оружие войдя внутрь"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Hint4" type="Node2D" parent="Rooms"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Rule" type="Label" parent="Rooms/Hint4"]
+margin_left = 784.0
+margin_top = 720.0
+margin_right = 878.0
+margin_bottom = 768.0
+custom_colors/font_color = Color( 0.980392, 0.980392, 0.980392, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Выстрел на стрелки"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Hint2" type="Node2D" parent="Rooms"]
+position = Vector2( -296, -16 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Rule" type="Label" parent="Rooms/Hint2"]
+margin_left = 712.0
+margin_top = 584.0
+margin_right = 968.0
+margin_bottom = 635.0
+custom_colors/font_color = Color( 0.980392, 0.980392, 0.980392, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Разрушается тем же цветом пули или белым безоружным персонажем"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Hint5" type="Node2D" parent="Rooms"]
+position = Vector2( -296, -16 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Rule" type="Label" parent="Rooms/Hint5"]
+margin_left = 760.0
+margin_top = 768.0
+margin_right = 938.0
+margin_bottom = 800.0
+custom_colors/font_color = Color( 0.980392, 0.980392, 0.980392, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Перемещение: WASD"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Hint3" type="Node2D" parent="Rooms"]
+position = Vector2( -856, -440 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Rule" type="Label" parent="Rooms/Hint3"]
+margin_left = 720.0
+margin_top = 569.0
+margin_right = 844.0
+margin_bottom = 602.0
+custom_colors/font_color = Color( 0.980392, 0.980392, 0.980392, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Поворачивает
+оружие"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="RoomSquare01-01" parent="Rooms" instance=ExtResource( 7 )]
+position = Vector2( -592, -224 )
+
+[node name="RoomSquare01-02" parent="Rooms" instance=ExtResource( 7 )]
+position = Vector2( -3760, -232 )
+
+[node name="RoomSquare01-03" parent="Rooms" instance=ExtResource( 7 )]
+position = Vector2( -2096, 1152 )
+
+[node name="RoomRectangle01-01" parent="Rooms" instance=ExtResource( 9 )]
+position = Vector2( -2448, -552 )
+
+[node name="RoomRectangle" parent="Rooms" instance=ExtResource( 15 )]
+position = Vector2( 416, 616 )
+
+[node name="RoomSquare3" parent="Rooms" instance=ExtResource( 11 )]
+position = Vector2( -3616, 904 )
+
+[node name="RoomSquare" parent="Rooms" instance=ExtResource( 13 )]
+position = Vector2( -592, 1056 )
+
+[node name="RoomSquare2" parent="Rooms" instance=ExtResource( 13 )]
+position = Vector2( -2096, 2272 )
+
+[node name="RoomSquare5" parent="Rooms" instance=ExtResource( 13 )]
+position = Vector2( -3216, 2608 )
+
+[node name="RoomSquare4" parent="Rooms" instance=ExtResource( 11 )]
+position = Vector2( -818, 2336 )
+
+[node name="Weapon" parent="Rooms" instance=ExtResource( 6 )]
+position = Vector2( 728, 672 )
+
+[node name="Weapon2" parent="Rooms" instance=ExtResource( 6 )]
+position = Vector2( -976, 3104 )
+
+[node name="Weapon4" parent="Rooms" instance=ExtResource( 6 )]
+position = Vector2( 544, 1750 )
+
+[node name="Weapon3" parent="Rooms" instance=ExtResource( 6 )]
+position = Vector2( -956, 2860 )
+
+[node name="WeaponTurn" parent="Rooms" instance=ExtResource( 14 )]
+position = Vector2( -768, 736 )
+
+[node name="WeaponTurn4" parent="Rooms" instance=ExtResource( 14 )]
+position = Vector2( -1272, 596 )
+
+[node name="WeaponTurn2" parent="Rooms" instance=ExtResource( 14 )]
+position = Vector2( -2600, -272 )
+
+[node name="WeaponTurn3" parent="Rooms" instance=ExtResource( 14 )]
+position = Vector2( -784, -264 )
+
+[node name="EnemyBasic01" parent="Rooms" instance=ExtResource( 10 )]
+position = Vector2( -776, 378 )
+
+[node name="EnemyBasic07" parent="Rooms" instance=ExtResource( 10 )]
+position = Vector2( -208, 856 )
+
+[node name="EnemyBasic15" parent="Rooms" instance=ExtResource( 10 )]
+position = Vector2( -776, 1040 )
+
+[node name="EnemyBasic12" parent="Rooms" instance=ExtResource( 10 )]
+position = Vector2( 549, 1480 )
+
+[node name="EnemyBasic13" parent="Rooms" instance=ExtResource( 10 )]
+position = Vector2( 602, 2432 )
+
+[node name="EnemyBasic09" parent="Rooms" instance=ExtResource( 10 )]
+position = Vector2( -1520, 3384 )
+
+[node name="EnemyBasic14" parent="Rooms" instance=ExtResource( 10 )]
+position = Vector2( -424, 3872 )
+
+[node name="EnemyBasic11" parent="Rooms" instance=ExtResource( 10 )]
+position = Vector2( -936, 2536 )
+
+[node name="EnemyBasic08" parent="Rooms" instance=ExtResource( 10 )]
+position = Vector2( -768, 1704 )
+
+[node name="EnemyBasic03" parent="Rooms" instance=ExtResource( 10 )]
+position = Vector2( -1440, 784 )
+
+[node name="EnemyBasic05" parent="Rooms" instance=ExtResource( 10 )]
+position = Vector2( -984, 1980 )
+
+[node name="EnemyBasic02" parent="Rooms" instance=ExtResource( 10 )]
+position = Vector2( -1984, 760 )
+
+[node name="EnemyBasic06" parent="Rooms" instance=ExtResource( 10 )]
+position = Vector2( -2424, 2416 )
+
+[node name="EnemyBasic10" parent="Rooms" instance=ExtResource( 10 )]
+position = Vector2( -3416, 3392 )
+
+[node name="EnemyBasic04" parent="Rooms" instance=ExtResource( 10 )]
+position = Vector2( -2608, -136 )
+
+[node name="Walls" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StoneWall01" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( 544, 560 )
+
+[node name="StoneWall05" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( 800, 560 )
+
+[node name="StoneWall06" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( 880, 696 )
+rotation = 1.5708
+scale = Vector2( 1.05, 1 )
+
+[node name="StoneWall07" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( -792, 672 )
+scale = Vector2( 0.7, 1 )
+
+[node name="StoneWall10" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( -1008, 2208 )
+
+[node name="StoneWall24" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( 544, 1648 )
+
+[node name="StoneWall11" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( -880, 2080 )
+rotation = 1.5708
+
+[node name="StoneWall12" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( -880, 1824 )
+rotation = 1.5708
+
+[node name="StoneWall13" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( -880, 1568 )
+rotation = 1.5708
+
+[node name="StoneWall14" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( -880, 1312 )
+rotation = 1.5708
+
+[node name="StoneWall15" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( -880, 1055 )
+rotation = 1.5708
+
+[node name="StoneWall16" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( -880, 800 )
+rotation = 1.5708
+
+[node name="StoneWall09" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( -1200, 656 )
+rotation = 1.5708
+
+[node name="StoneWall22" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( -2168, 3664 )
+
+[node name="StoneWall26" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( -1925, 3616 )
+
+[node name="StoneWall27" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( -1688, 3568 )
+
+[node name="StoneWall28" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( -1456, 3520 )
+
+[node name="StoneWall29" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( -1224, 3472 )
+
+[node name="StoneWall30" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( -1096, 3552 )
+rotation = 1.5708
+
+[node name="StoneWall32" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( -3536, 2440 )
+rotation = 1.5708
+
+[node name="StoneWall33" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( -3536, 2696 )
+rotation = 1.5708
+
+[node name="StoneWall34" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( -3536, 2952 )
+rotation = 1.5708
+
+[node name="StoneWall35" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( -3536, 3208 )
+rotation = 1.5708
+
+[node name="StoneWall36" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( -3536, 3464 )
+rotation = 1.5708
+
+[node name="StoneWall37" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( -3408, 3616 )
+
+[node name="StoneWall31" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( -960, 2992 )
+
+[node name="StoneWall25" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( -3872, -232 )
+rotation = 1.5708
+scale = Vector2( 0.87, 1 )
+
+[node name="StoneWall17" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( -1272, 944 )
+
+[node name="StoneWall18" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( -2080, 936 )
+
+[node name="StoneWall20" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( -2464, -336 )
+
+[node name="StoneWall21" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( -2720, -344 )
+
+[node name="StoneWall19" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( -1840, 832 )
+rotation = 1.5708
+
+[node name="StoneWall23" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( -1072, 3808 )
+rotation = 1.5708
+
+[node name="StoneWall39" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( -944, 3984 )
+
+[node name="StoneWall40" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( -688, 3984 )
+
+[node name="StoneWall41" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( -432, 3984 )
+
+[node name="StoneWall42" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( -176, 3984 )
+
+[node name="StoneWall44" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( 16, 3984 )
+scale = Vector2( 0.5, 1 )
+
+[node name="StoneWall43" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( 32, 3864 )
+rotation = 1.5708
+scale = Vector2( 0.57, 1 )
+
+[node name="StoneWall38" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( 672, 2584 )
+rotation = 1.5708
+scale = Vector2( 0.95, 1 )
+
+[node name="StoneWall45" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( 632, 2752 )
+scale = Vector2( 0.7, 1 )
+
+[node name="StoneWall46" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( 1952, 2288 )
+rotation = 1.5708
+
+[node name="StoneWall08" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( -784, -336 )
+
+[node name="StoneWall02" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( 496, 832 )
+
+[node name="StoneWall03" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( 752, 832 )
+
+[node name="StoneWall04" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( 1824, 2288 )
+rotation = 1.5708
+
+[node name="WallDestructable5" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( -1600, 752 )
+_color_index = 1
+
+[node name="WallDestructable20" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( -2056, 3344 )
+rotation = 1.5708
+_color_index = 1
+
+[node name="WallDestructable25" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( -1816, 3456 )
+rotation = 1.5708
+_color_index = 1
+
+[node name="WallDestructable26" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( -896, 3472 )
+_color_index = 2
+
+[node name="WallDestructable24" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( -984, 3680 )
+
+[node name="WallDestructable33" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( -3392, 3072 )
+rotation = 1.5708
+_color_index = 1
+
+[node name="WallDestructable34" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( -2688, 2480 )
+_color_index = 2
+
+[node name="WallDestructable32" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( -784, 3776 )
+rotation = 1.5708
+
+[node name="WallDestructable17" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( -2112, 688 )
+_color_index = 1
+
+[node name="WallDestructable18" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( -2240, 848 )
+_color_index = 1
+
+[node name="WallDestructable6" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( -1662, 816 )
+rotation = 1.5708
+_color_index = 1
+
+[node name="WallDestructable8" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( -1840, 592 )
+rotation = 1.5708
+
+[node name="WallDestructable9" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( -2688, 64 )
+rotation = 1.5708
+
+[node name="WallDestructable10" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( -2544, 256 )
+rotation = 1.5708
+
+[node name="WallDestructable11" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( -2672, 448 )
+rotation = 1.5708
+
+[node name="WallDestructable12" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( -2544, 672 )
+rotation = 1.5708
+
+[node name="WallDestructable7" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( -1032, 832 )
+rotation = 1.5708
+_color_index = 1
+
+[node name="WallDestructable16" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( -776, 128 )
+rotation = 1.5708
+_color_index = 1
+
+[node name="WallDestructable19" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( -832, -128 )
+rotation = 1.5708
+
+[node name="WallDestructable13" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( -1032, 1664 )
+rotation = 1.5708
+_color_index = 1
+
+[node name="WallDestructable21" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( -768, 1360 )
+_color_index = 1
+
+[node name="WallDestructable23" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( -576, 880 )
+rotation = 1.5708
+_color_index = 1
+
+[node name="WallDestructable22" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( -768, 2064 )
+_color_index = 2
+
+[node name="WallDestructable27" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( -1024, 2672 )
+_color_index = 2
+
+[node name="WallDestructable28" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( -738, 2224 )
+rotation = 1.5708
+_color_index = 2
+
+[node name="WallDestructable29" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( 0, 2192 )
+rotation = 1.5708
+_color_index = 2
+
+[node name="WallDestructable30" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( 610, 1900 )
+_color_index = 3
+
+[node name="WallDestructable31" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( 512, 2064 )
+_color_index = 3
+
+[node name="WallDestructable14" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( -968, 1344 )
+rotation = 1.5708
+_color_index = 2
+
+[node name="WallDestructable15" parent="Walls" instance=ExtResource( 12 )]
+position = Vector2( -1032, 1088 )
+rotation = 1.5708
+
+[node name="Exit" parent="." instance=ExtResource( 16 )]
+position = Vector2( 1846, 1864 )
+
+[node name="UI" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="UIHUD" parent="UI" instance=ExtResource( 2 )]
+
+[node name="UIBoostMenu" parent="UI" instance=ExtResource( 3 )]
+
+[node name="FogsOfWar" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="FogOfWar1" type="Polygon2D" parent="FogsOfWar"]
+position = Vector2( -5528, -2728 )
+z_index = 1
+color = Color( 0.0666667, 0.0666667, 0.0666667, 0.862745 )
+polygon = PoolVector2Array( -816, 0, 9984, 0, 9976, 7840, 7424, 7808, 7528, 5192, 7528, 3560, 6456, 3560, 6456, 3240, 5944, 3240, 5944, 2392, 4872, 2392, 4872, 2344, 4616, 2344, 4616, 2392, 3192, 2392, 3192, 2344, 2936, 2344, 2936, 2336, 2680, 2336, 2680, 2384, 1656, 2384, -808, 2376 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="FogOfWar2" type="Polygon2D" parent="FogsOfWar"]
+position = Vector2( -8904, 2240 )
+z_index = 1
+color = Color( 0.0666667, 0.0666667, 0.0666667, 0.862745 )
+polygon = PoolVector2Array( 2584, -2608, 5032, -2584, 5032, -1464, 5592, -1464, 5592, -1416, 5416, -1416, 5416, -1384, 5368, -1384, 5368, -1144, 5320, -1144, 5320, -904, 5272, -904, 5272, -680, 5224, -680, 5224, -424, 5272, -424, 5272, -200, 5320, -200, 5320, 40, 5368, 40, 5368, 1376, 6608, 1376, 6608, 1424, 6864, 1424, 6864, 1376, 7104, 1376, 7104, 1328, 7344, 1328, 7344, 1280, 7576, 1280, 7576, 1232, 7808, 1232, 7808, 1440, 7832, 1440, 7832, 1744, 8984, 1744, 8984, 1552, 9160, 1552, 9160, 1504, 9384, 1504, 9384, 1456, 9416, 1456, 9416, 1200, 9448, 1200, 9448, 960, 9496, 960, 9496, 704, 9448, 704, 9448, 512, 9624, 512, 9624, 224, 10928, 224, 10912, 3152, 2600, 3104 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[connection signal="rotate_right" from="Rooms/RoomSquare01-01" to="Player" method="_on_Room_rotate_right"]
+[connection signal="rotate_right" from="Rooms/RoomSquare01-02" to="Player" method="_on_Room_rotate_right"]
+[connection signal="rotate_right" from="Rooms/RoomSquare01-03" to="Player" method="_on_Room_rotate_right"]
+[connection signal="rotate_right" from="Rooms/RoomRectangle01-01" to="Player" method="_on_Room_rotate_right"]
+[connection signal="rotate_right" from="Rooms/RoomRectangle" to="Player" method="_on_Room_rotate_right"]
+[connection signal="rotate_right" from="Rooms/RoomSquare3" to="Player" method="_on_Room_rotate_right"]
+[connection signal="rotate_right" from="Rooms/RoomSquare" to="Player" method="_on_Room_rotate_right"]
+[connection signal="rotate_right" from="Rooms/RoomSquare2" to="Player" method="_on_Room_rotate_right"]
+[connection signal="rotate_right" from="Rooms/RoomSquare5" to="Player" method="_on_Room_rotate_right"]
+[connection signal="rotate_right" from="Rooms/RoomSquare4" to="Player" method="_on_Room_rotate_right"]

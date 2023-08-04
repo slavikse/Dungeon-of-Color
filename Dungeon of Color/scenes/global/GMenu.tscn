@@ -1,0 +1,258 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://scenes/components/floors/FloorRoom.tscn" type="PackedScene" id=1]
+[ext_resource path="res://fonts/intro.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scenes/global/GMenu.gd" type="Script" id=3]
+[ext_resource path="res://scenes/global/textures/volume2.png" type="Texture" id=4]
+[ext_resource path="res://scenes/global/textures/volume1.png" type="Texture" id=5]
+[ext_resource path="res://scenes/global/textures/exit.png" type="Texture" id=6]
+[ext_resource path="res://scenes/global/textures/start.png" type="Texture" id=7]
+[ext_resource path="res://scenes/global/textures/placeholder.png" type="Texture" id=8]
+[ext_resource path="res://scenes/components/exit/Exit.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/components/player/body/PlayerBody.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/components/enemy_basic/body/EnemyBody.tscn" type="PackedScene" id=12]
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 2 )
+
+[node name="GMenu" type="Node2D"]
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Floor" type="Node2D" parent="."]
+position = Vector2( 6712, 4160 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Floor1" type="Node2D" parent="Floor"]
+position = Vector2( -6720, -4480 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="FloorRoomWall1" parent="Floor/Floor1" instance=ExtResource( 1 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floor/Floor1" instance=ExtResource( 1 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floor/Floor1" instance=ExtResource( 1 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floor/Floor1" instance=ExtResource( 1 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor2" type="Node2D" parent="Floor"]
+position = Vector2( -5696, -4480 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="FloorRoomWall1" parent="Floor/Floor2" instance=ExtResource( 1 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floor/Floor2" instance=ExtResource( 1 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floor/Floor2" instance=ExtResource( 1 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floor/Floor2" instance=ExtResource( 1 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor3" type="Node2D" parent="Floor"]
+position = Vector2( -6720, -3456 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="FloorRoomWall1" parent="Floor/Floor3" instance=ExtResource( 1 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floor/Floor3" instance=ExtResource( 1 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floor/Floor3" instance=ExtResource( 1 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floor/Floor3" instance=ExtResource( 1 )]
+position = Vector2( -64, -64 )
+
+[node name="Floor4" type="Node2D" parent="Floor"]
+position = Vector2( -5696, -3456 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="FloorRoomWall1" parent="Floor/Floor4" instance=ExtResource( 1 )]
+position = Vector2( 448, 448 )
+
+[node name="FloorRoomWall2" parent="Floor/Floor4" instance=ExtResource( 1 )]
+position = Vector2( 448, -64 )
+
+[node name="FloorRoomWall3" parent="Floor/Floor4" instance=ExtResource( 1 )]
+position = Vector2( -64, 448 )
+
+[node name="FloorRoomWall4" parent="Floor/Floor4" instance=ExtResource( 1 )]
+position = Vector2( -64, -64 )
+
+[node name="PlayerBody" parent="." instance=ExtResource( 11 )]
+position = Vector2( 728, 744 )
+
+[node name="Exit" parent="PlayerBody" instance=ExtResource( 10 )]
+position = Vector2( 488, -40 )
+
+[node name="EnemyBody" parent="PlayerBody" instance=ExtResource( 12 )]
+position = Vector2( 392, -8 )
+rotation = -1.5708
+__meta__ = {
+"_editor_description_": "Для определения пересечения с объектами Area2D."
+}
+
+[node name="FogOfWar2" type="Polygon2D" parent="."]
+position = Vector2( -2912, -1032 )
+color = Color( 0.0666667, 0.0666667, 0.0666667, 0.862745 )
+polygon = PoolVector2Array( 1800, 200, 3552, 200, 3552, 3112, 1776, 3112 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="FogOfWar3" type="Polygon2D" parent="."]
+position = Vector2( -496, -1040 )
+color = Color( 0.0666667, 0.0666667, 0.0666667, 0.862745 )
+polygon = PoolVector2Array( 1776, 200, 3552, 200, 3552, 3112, 1776, 3112 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="FogOfWar4" type="Polygon2D" parent="."]
+position = Vector2( -1520, -1088 )
+color = Color( 0.0666667, 0.0666667, 0.0666667, 0.862745 )
+polygon = PoolVector2Array( 2160, 1152, 2800, 1152, 2800, 1520, 2160, 1520 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="FogOfWar5" type="Polygon2D" parent="."]
+position = Vector2( -1520, -752 )
+color = Color( 0.0666667, 0.0666667, 0.0666667, 0.862745 )
+polygon = PoolVector2Array( 2160, 1288, 2800, 1288, 2800, 1376, 2160, 1376 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="FogOfWar6" type="Polygon2D" parent="."]
+position = Vector2( -1520, -328 )
+color = Color( 0.0666667, 0.0666667, 0.0666667, 0.862745 )
+polygon = PoolVector2Array( 2160, 1304, 2800, 1304, 2800, 1344, 2160, 1344 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Rule" type="Label" parent="."]
+margin_left = 704.0
+margin_top = 64.0
+margin_right = 1216.0
+margin_bottom = 432.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Цель игры: Выбраться из темницы.
+
+Прокачай персонажа в своём стиле:
+С оружием или без, выбор за тобой!
+Для прокачки нужно поглощать оружие.
+
+Правила цвета: Зелёный бьёт зеленый, красный бьёт красный и т.д., а белый бьёт все цвета.
+
+Найди выход из темницы прорываясь сквозь толпы вооруженных охранников."
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Volume" type="Button" parent="."]
+margin_left = 704.0
+margin_top = 544.0
+margin_right = 917.0
+margin_bottom = 664.0
+rect_scale = Vector2( 0.3, 0.6 )
+focus_mode = 0
+enabled_focus_mode = 0
+icon = ExtResource( 8 )
+flat = true
+icon_align = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Volume1" type="Sprite" parent="Volume"]
+position = Vector2( 106.667, 58.3333 )
+scale = Vector2( 3.55556, 1.44444 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Volume2" type="Sprite" parent="Volume/Volume1"]
+position = Vector2( 0, -1.45435e-05 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Start" type="Button" parent="."]
+margin_left = 792.0
+margin_top = 513.0
+margin_right = 960.0
+margin_bottom = 581.0
+rect_scale = Vector2( 2, 2 )
+focus_mode = 0
+custom_fonts/font = SubResource( 1 )
+enabled_focus_mode = 0
+icon = ExtResource( 7 )
+flat = true
+icon_align = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Exit" type="Button" parent="."]
+margin_left = 872.0
+margin_top = 960.0
+margin_right = 1048.0
+margin_bottom = 1032.0
+focus_mode = 0
+custom_fonts/font = SubResource( 2 )
+enabled_focus_mode = 0
+icon = ExtResource( 6 )
+flat = true
+icon_align = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[connection signal="pressed" from="Volume" to="." method="_on_Volume_pressed"]
+[connection signal="pressed" from="Start" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]

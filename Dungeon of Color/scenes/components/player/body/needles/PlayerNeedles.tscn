@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/components/player/body/needles/PlayerNeedles.gd" type="Script" id=1]
+[ext_resource path="res://scenes/components/player/body/needles/needle/PlayerNeedle.tscn" type="PackedScene" id=2]
+
+[node name="PlayerNeedles" type="Node2D"]
+rotation = -0.785398
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PlayerNeedleUp" parent="." instance=ExtResource( 2 )]
+
+[node name="PlayerNeedleRight" parent="." instance=ExtResource( 2 )]
+rotation = 1.5708
+
+[node name="PlayerNeedleDown" parent="." instance=ExtResource( 2 )]
+rotation = 3.14159
+
+[node name="PlayerNeedleLeft" parent="." instance=ExtResource( 2 )]
+rotation = -1.5708

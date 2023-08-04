@@ -1,0 +1,432 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/components/player/weapon/PlayerWeapon.gd" type="Script" id=1]
+[ext_resource path="res://scenes/components/player/weapon/gun/PlayerGun.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/components/player/weapon/audios/heavy_swallow.wav" type="AudioStream" id=3]
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Needles/NeedleUp:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -16 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Needles/NeedleUp:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PlayerGunUp:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -24 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("PlayerGunUp:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Needles/NeedleRight:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 16, 3.49579e-07 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Needles/NeedleRight:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("PlayerGunRight:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 24, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("PlayerGunRight:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("PlayerGunDown:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 24 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("PlayerGunDown:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Needles/NeedleDown:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Needles/NeedleLeft:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("PlayerGunLeft:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -24, 0 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("PlayerGunLeft:scale")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "absorb"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Needles/NeedleUp:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.2 ),
+"transitions": PoolRealArray( 0.5, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2, 2 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PlayerGunUp:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.15, 0.2 ),
+"transitions": PoolRealArray( 1, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -24 ), Vector2( 0, -24 ), Vector2( 0, -16 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PlayerGunUp:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15, 0.2 ),
+"transitions": PoolRealArray( 0.5, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.12, 1 ), Vector2( 0, 0.4 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Needles/NeedleRight:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.15, 0.2 ),
+"transitions": PoolRealArray( 0.5, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2, 2 ), Vector2( 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PlayerGunRight:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.15, 0.2 ),
+"transitions": PoolRealArray( 1, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 24, 0 ), Vector2( 24, 0 ), Vector2( 16, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("PlayerGunRight:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.15, 0.2 ),
+"transitions": PoolRealArray( 0.5, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.12, 1 ), Vector2( 1e-05, 0.4 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Needles/NeedleDown:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.15, 0.2 ),
+"transitions": PoolRealArray( 0.5, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2, 2 ), Vector2( 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("PlayerGunDown:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.15, 0.2 ),
+"transitions": PoolRealArray( 1, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 24 ), Vector2( 0, 24 ), Vector2( 0, 16 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("PlayerGunDown:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.15, 0.2 ),
+"transitions": PoolRealArray( 0.5, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.12, 1 ), Vector2( 1e-05, 0.4 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Needles/NeedleLeft:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.15, 0.2 ),
+"transitions": PoolRealArray( 0.5, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2, 2 ), Vector2( 1, 1 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("PlayerGunLeft:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.15, 0.2 ),
+"transitions": PoolRealArray( 1, 2, 1 ),
+"update": 0,
+"values": [ Vector2( -24, 0 ), Vector2( -24, 0 ), Vector2( -16, 0 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("PlayerGunLeft:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.15, 0.2 ),
+"transitions": PoolRealArray( 0.5, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.12, 1 ), Vector2( 1e-05, 0.4 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Needles:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[node name="PlayerWeapon" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Needles" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="NeedleUp" type="Polygon2D" parent="Needles"]
+position = Vector2( 0, -16 )
+offset = Vector2( 0, 8 )
+polygon = PoolVector2Array( -8, -8, 0, -22, 8, -8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="NeedleRight" type="Polygon2D" parent="Needles"]
+position = Vector2( 16, 3.49579e-07 )
+rotation = 1.5708
+offset = Vector2( 2.86102e-05, 7.99997 )
+polygon = PoolVector2Array( -8.00003, -7.99997, -7.96396e-05, -22, 7.99997, -8.00003 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="NeedleDown" type="Polygon2D" parent="Needles"]
+position = Vector2( -2.22597e-07, 16 )
+rotation = 3.14159
+offset = Vector2( -2.0504e-05, 7.99998 )
+polygon = PoolVector2Array( -7.99998, -8.00002, 5.57739e-05, -22, 8.00002, -7.99998 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="NeedleLeft" type="Polygon2D" parent="Needles"]
+position = Vector2( -16, -1.27244e-07 )
+rotation = -1.5708
+offset = Vector2( -2.90871e-05, 7.99997 )
+polygon = PoolVector2Array( -7.99997, -8.00003, 7.96397e-05, -22, 8.00003, -7.99997 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PlayerGunUp" parent="." instance=ExtResource( 2 )]
+modulate = Color( 0.431373, 0.729412, 0.298039, 1 )
+position = Vector2( 0, -24 )
+rotation = -1.5708
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="PlayerGunRight" parent="." instance=ExtResource( 2 )]
+modulate = Color( 0.0705882, 0.52549, 0.8, 1 )
+position = Vector2( 24, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="PlayerGunDown" parent="." instance=ExtResource( 2 )]
+modulate = Color( 0.827451, 0.121569, 0.403922, 1 )
+position = Vector2( 0, 24 )
+rotation = 1.5708
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="PlayerGunLeft" parent="." instance=ExtResource( 2 )]
+modulate = Color( 0.839216, 0.745098, 0.12549, 1 )
+position = Vector2( -24, 0 )
+rotation = 3.14159
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Absorb" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 2 )
+anims/absorb = SubResource( 3 )
+
+[node name="Absorption" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+pitch_scale = 2.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[connection signal="deactivate" from="PlayerGunUp" to="." method="_on_PlayerGun_deactivate"]
+[connection signal="deactivate" from="PlayerGunRight" to="." method="_on_PlayerGun_deactivate"]
+[connection signal="deactivate" from="PlayerGunDown" to="." method="_on_PlayerGun_deactivate"]
+[connection signal="deactivate" from="PlayerGunLeft" to="." method="_on_PlayerGun_deactivate"]
+[connection signal="animation_finished" from="Absorb" to="." method="_on_Absorb_animation_finished"]
+[connection signal="finished" from="Absorption" to="." method="_on_Absorption_finished"]

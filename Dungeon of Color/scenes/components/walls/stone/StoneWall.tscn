@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/components/walls/common/CommonWall.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/components/walls/stone/textures/stone_wall.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 128, 24 )
+
+[node name="StoneWall" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true,
+"_editor_description_": "Collision для блокирования пути стенами."
+}
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0, -24 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CommonWall" parent="." instance=ExtResource( 2 )]
+visible = false
+
+[node name="Body" type="Polygon2D" parent="."]
+scale = Vector2( 2, 2 )
+color = Color( 1, 1, 1, 0 )
+polygon = PoolVector2Array( -64, -24, 64, -24, 64, 0, -64, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StoneWall1" type="Sprite" parent="Body"]
+position = Vector2( -32, -12 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StoneWall2" type="Sprite" parent="Body"]
+position = Vector2( 32, -12 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}

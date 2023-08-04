@@ -1,0 +1,410 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Area2D",
+"class": "BulletArea2D",
+"language": "GDScript",
+"path": "res://scenes/components/common/bullet/area_2d/_BulletArea2D.gd"
+}, {
+"base": "RigidBody2D",
+"class": "CommonBullet",
+"language": "GDScript",
+"path": "res://scenes/components/common/bullet/CommonBullet.gd"
+}, {
+"base": "Node2D",
+"class": "CommonTimer",
+"language": "GDScript",
+"path": "res://scenes/components/common/timer/CommonTimer.gd"
+}, {
+"base": "Area2D",
+"class": "CommonWall",
+"language": "GDScript",
+"path": "res://scenes/components/walls/common/CommonWall.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://scenes/components/enemy_basic/EnemyBasic.gd"
+}, {
+"base": "Area2D",
+"class": "EnemyBody",
+"language": "GDScript",
+"path": "res://scenes/components/enemy_basic/body/EnemyBody.gd"
+}, {
+"base": "Node2D",
+"class": "EnemyGun",
+"language": "GDScript",
+"path": "res://scenes/components/enemy_basic/gun/EnemyGun.gd"
+}, {
+"base": "Area2D",
+"class": "EnemyNeedles",
+"language": "GDScript",
+"path": "res://scenes/components/enemy_basic/body/needle/EnemyNeedles.gd"
+}, {
+"base": "Node2D",
+"class": "EnemyShot",
+"language": "GDScript",
+"path": "res://scenes/components/enemy_basic/gun/shot/EnemyShot.gd"
+}, {
+"base": "Node2D",
+"class": "EnemySpawn",
+"language": "GDScript",
+"path": "res://scenes/components/rooms/enemies/EnemySpawn.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://scenes/components/player/Player.gd"
+}, {
+"base": "Area2D",
+"class": "PlayerBody",
+"language": "GDScript",
+"path": "res://scenes/components/player/body/PlayerBody.gd"
+}, {
+"base": "Polygon2D",
+"class": "PlayerEye",
+"language": "GDScript",
+"path": "res://scenes/components/player/body/eye/PlayerEye.gd"
+}, {
+"base": "Area2D",
+"class": "PlayerGun",
+"language": "GDScript",
+"path": "res://scenes/components/player/weapon/gun/PlayerGun.gd"
+}, {
+"base": "Node2D",
+"class": "PlayerJump",
+"language": "GDScript",
+"path": "res://scenes/components/player/jump/PlayerJump.gd"
+}, {
+"base": "Area2D",
+"class": "PlayerNeedle",
+"language": "GDScript",
+"path": "res://scenes/components/player/body/needles/needle/PlayerNeedle.gd"
+}, {
+"base": "Node2D",
+"class": "PlayerNeedles",
+"language": "GDScript",
+"path": "res://scenes/components/player/body/needles/PlayerNeedles.gd"
+}, {
+"base": "Tween",
+"class": "PlayerRotation",
+"language": "GDScript",
+"path": "res://scenes/components/player/interpolate/PlayerRotation.gd"
+}, {
+"base": "Node2D",
+"class": "PlayerShot",
+"language": "GDScript",
+"path": "res://scenes/components/player/weapon/gun/shot/PlayerShot.gd"
+}, {
+"base": "Node2D",
+"class": "PlayerWeapon",
+"language": "GDScript",
+"path": "res://scenes/components/player/weapon/PlayerWeapon.gd"
+}, {
+"base": "Node2D",
+"class": "UIJumpCooldown",
+"language": "GDScript",
+"path": "res://scenes/components/ui/boost_menu/jump_cooldown/UIJumpCooldown.gd"
+}, {
+"base": "Node2D",
+"class": "UIJumpMultiplier",
+"language": "GDScript",
+"path": "res://scenes/components/ui/boost_menu/jump_multiplier/UIJumpMultiplier.gd"
+}, {
+"base": "Node2D",
+"class": "UIJumping",
+"language": "GDScript",
+"path": "res://scenes/components/ui/boost_menu/jumping/UIJumping.gd"
+}, {
+"base": "Node2D",
+"class": "UIMovementSpeed",
+"language": "GDScript",
+"path": "res://scenes/components/ui/boost_menu/movement_speed/UIMovementSpeed.gd"
+}, {
+"base": "Node2D",
+"class": "UIWeapon",
+"language": "GDScript",
+"path": "res://scenes/components/ui/boost_menu/weapon/UIWeapon.gd"
+}, {
+"base": "Node2D",
+"class": "UIWeaponAbsorb",
+"language": "GDScript",
+"path": "res://scenes/components/ui/boost_menu/weapon_absorb/UIWeaponAbsorb.gd"
+}, {
+"base": "Node2D",
+"class": "UIWeaponRotate",
+"language": "GDScript",
+"path": "res://scenes/components/ui/boost_menu/weapon_rotate/UIWeaponRotate.gd"
+}, {
+"base": "Node2D",
+"class": "UIWeaponRotateDuration",
+"language": "GDScript",
+"path": "res://scenes/components/ui/boost_menu/weapon_rotate_duration/UIWeaponRotateDuration.gd"
+}, {
+"base": "Node2D",
+"class": "UIWeaponShot",
+"language": "GDScript",
+"path": "res://scenes/components/ui/boost_menu/weapon_shot/UIWeaponShot.gd"
+}, {
+"base": "Node2D",
+"class": "UIWeaponShotCooldown",
+"language": "GDScript",
+"path": "res://scenes/components/ui/boost_menu/weapon_shot_cooldown/UIWeaponShotCooldown.gd"
+} ]
+_global_script_class_icons={
+"BulletArea2D": "",
+"CommonBullet": "",
+"CommonTimer": "",
+"CommonWall": "",
+"Enemy": "",
+"EnemyBody": "",
+"EnemyGun": "",
+"EnemyNeedles": "",
+"EnemyShot": "",
+"EnemySpawn": "",
+"Player": "",
+"PlayerBody": "",
+"PlayerEye": "",
+"PlayerGun": "",
+"PlayerJump": "",
+"PlayerNeedle": "",
+"PlayerNeedles": "",
+"PlayerRotation": "",
+"PlayerShot": "",
+"PlayerWeapon": "",
+"UIJumpCooldown": "",
+"UIJumpMultiplier": "",
+"UIJumping": "",
+"UIMovementSpeed": "",
+"UIWeapon": "",
+"UIWeaponAbsorb": "",
+"UIWeaponRotate": "",
+"UIWeaponRotateDuration": "",
+"UIWeaponShot": "",
+"UIWeaponShotCooldown": ""
+}
+
+[application]
+
+config/name="Dungeon of Color"
+config/description="Вы оказываетесь в темнице с толпами вооружённых охранников. Чтобы выбраться Вам нужно найти выход."
+run/main_scene="res://scenes/global/GMenu.tscn"
+boot_splash/image="res://assets/icon.png"
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
+config/icon="res://assets/icon.png"
+
+[autoload]
+
+G="*res://scenes/global/G.gd"
+GNumber="*res://scenes/global/GNumber.gd"
+GColor="*res://scenes/global/GColor.gd"
+GFunc="*res://scenes/global/GFunc.gd"
+GState="*res://scenes/global/GState.gd"
+GAmbient="*res://scenes/global/GAmbient.tscn"
+
+[debug]
+
+settings/crash_handler/message="Пожалуйста, укажите это при сообщении об ошибке разработчику проекта по адресу support@pixsynt.ru"
+settings/crash_handler/message.editor="Пожалуйста, укажите это при сообщении об ошибке разработчику проекта по адресу support@pixsynt.ru"
+settings/fps/force_fps=60
+gdscript/warnings/unused_class_variable=true
+gdscript/warnings/unsafe_property_access=true
+gdscript/warnings/unsafe_method_access=true
+gdscript/warnings/unsafe_cast=true
+gdscript/warnings/unsafe_call_argument=true
+
+[display]
+
+window/size/width=1920
+window/size/height=1080
+window/size/resizable=false
+window/size/fullscreen=true
+mouse_cursor/custom_image="res://assets/cursor.png"
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
+[editor]
+
+scene_naming=1
+
+[filesystem]
+
+import/fbx/use_fbx=false
+
+[importer_defaults]
+
+texture={
+"compress/bptc_ldr": 0,
+"compress/hdr_mode": 0,
+"compress/lossy_quality": 0.7,
+"compress/mode": 0,
+"compress/normal_map": 0,
+"detect_3d": false,
+"flags/anisotropic": false,
+"flags/filter": false,
+"flags/mipmaps": false,
+"flags/repeat": 0,
+"flags/srgb": 2,
+"process/HDR_as_SRGB": false,
+"process/fix_alpha_border": true,
+"process/invert_color": false,
+"process/normal_map_invert_y": false,
+"process/premult_alpha": false,
+"size_limit": 0,
+"stream": false,
+"svg/scale": 1.0
+}
+
+[input]
+
+ui_accept={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_select={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_cancel={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_focus_next={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_focus_prev={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_left={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_right={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_up={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_down={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_page_up={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_page_down={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_home={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_end={
+"deadzone": 0.5,
+"events": [  ]
+}
+move_up={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_down={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_jump={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+shot_up={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+shot_right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+shot_down={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+shot_left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777231,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+weapon_absorb={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":81,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+weapon_turn={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777238,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_boost_menu={
+"deadzone": 0.5,
+"events": [  ]
+}
+
+[input_devices]
+
+pointing/emulate_mouse_from_touch=false
+
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Bullet"
+2d_physics/layer_3="Wall"
+2d_physics/layer_4="Enemy"
+2d_physics/layer_5="Gun"
+2d_physics/layer_6="Needle"
+
+[physics]
+
+common/physics_jitter_fix=-1.0
+2d/default_gravity=0
+2d/default_gravity_vector=Vector2( 0, 0 )
+
+[rendering]
+
+2d/options/use_nvidia_rect_flicker_workaround=true
+quality/intended_usage/framebuffer_allocation=0
+quality/intended_usage/framebuffer_allocation.mobile=0
+2d/snapping/use_gpu_pixel_snap=true
+quality/filters/anisotropic_filter_level=1
+2d/options/ninepatch_mode=0
+environment/default_clear_color=Color( 0.133333, 0.133333, 0.133333, 1 )
+environment/default_environment="res://default_env.tres"

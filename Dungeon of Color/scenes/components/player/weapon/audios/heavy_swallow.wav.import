@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/heavy_swallow.wav-34848bab0299ec0dea2fa0a6d930fbf2.sample"
+
+[deps]
+
+source_file="res://scenes/components/player/weapon/audios/heavy_swallow.wav"
+dest_files=[ "res://.import/heavy_swallow.wav-34848bab0299ec0dea2fa0a6d930fbf2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

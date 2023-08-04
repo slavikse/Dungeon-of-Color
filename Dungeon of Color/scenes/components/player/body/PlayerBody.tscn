@@ -1,0 +1,224 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://scenes/components/player/body/PlayerBody.gd" type="Script" id=1]
+[ext_resource path="res://scenes/components/player/body/needles/PlayerNeedles.tscn" type="PackedScene" id=2]
+[ext_resource path="res://fonts/intro.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://scenes/components/player/body/eye/PlayerEye.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/components/player/weapon/gun/scripts/velocity.gd" type="Script" id=5]
+[ext_resource path="res://scenes/components/player/weapon/gun/scripts/shot_side.gd" type="Script" id=6]
+[ext_resource path="res://scenes/components/enemy_basic/audios/destroyed.wav" type="AudioStream" id=7]
+[ext_resource path="res://scenes/global/textures/exit.png" type="Texture" id=8]
+[ext_resource path="res://scenes/global/textures/start.png" type="Texture" id=9]
+
+[sub_resource type="ParticlesMaterial" id=4]
+emission_shape = 2
+emission_box_extents = Vector3( 15, 15, 1 )
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 4.0
+scale_random = 0.2
+
+[sub_resource type="DynamicFont" id=5]
+size = 60
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 30
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=10]
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 30
+font_data = ExtResource( 3 )
+
+[node name="PlayerBody" type="Area2D"]
+collision_mask = 34
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_editor_description_": "Для поиска вражеским лучом (layer:player).
+Для определения пересечения с объектами Area2D.
+"
+}
+_shot_side_script = ExtResource( 6 )
+_velocity_script = ExtResource( 5 )
+
+[node name="Collision" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( -11, -16, 11, -16, 16, -11, 16, 11, 11, 16, -11, 16, -16, 11, -16, -11 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Body" type="Polygon2D" parent="."]
+z_index = 1
+polygon = PoolVector2Array( -16, -11, -16, 11, -11, 16, 11, 16, 16, 11, 16, -11, 11, -16, -11, -16 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PlayerEye" parent="Body" instance=ExtResource( 4 )]
+
+[node name="PlayerNeedles" parent="." instance=ExtResource( 2 )]
+
+[node name="Destroy" type="Particles2D" parent="."]
+emitting = false
+amount = 40
+one_shot = true
+explosiveness = 1.0
+local_coords = false
+process_material = SubResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="GameOver" type="Node2D" parent="."]
+visible = false
+z_index = 10
+z_as_relative = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Bg" type="Polygon2D" parent="GameOver"]
+color = Color( 0.0666667, 0.0666667, 0.0666667, 0.784314 )
+polygon = PoolVector2Array( -2112, 2160, 2888, 2168, 2944, -1144, -2064, -1176 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="GameOver" type="Label" parent="GameOver"]
+margin_left = -320.0
+margin_top = -128.0
+margin_right = 320.0
+margin_bottom = -64.0
+custom_fonts/font = SubResource( 5 )
+text = "Игра окончена!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Start" type="Button" parent="GameOver"]
+margin_left = -168.0
+margin_top = 56.0
+margin_bottom = 124.0
+rect_scale = Vector2( 2, 2 )
+focus_mode = 0
+custom_fonts/font = SubResource( 9 )
+enabled_focus_mode = 0
+icon = ExtResource( 9 )
+flat = true
+icon_align = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Exit" type="Button" parent="GameOver"]
+margin_left = -88.0
+margin_top = 312.0
+margin_right = 88.0
+margin_bottom = 384.0
+focus_mode = 0
+custom_fonts/font = SubResource( 10 )
+enabled_focus_mode = 0
+icon = ExtResource( 8 )
+flat = true
+icon_align = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Destroyed" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+volume_db = -25.0
+pitch_scale = 4.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="GameEnd" type="Node2D" parent="."]
+visible = false
+z_index = 10
+z_as_relative = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Bg" type="Polygon2D" parent="GameEnd"]
+color = Color( 0.0666667, 0.0666667, 0.0666667, 0.784314 )
+polygon = PoolVector2Array( -2112, 2160, 2888, 2168, 2944, -1144, -2064, -1176 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="GameEnd" type="Label" parent="GameEnd"]
+margin_left = -320.0
+margin_top = -128.0
+margin_right = 320.0
+margin_bottom = -64.0
+custom_fonts/font = SubResource( 5 )
+text = "Игра пройдена!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Hint" type="Label" parent="GameEnd"]
+margin_left = -320.0
+margin_top = -32.0
+margin_right = 320.0
+margin_bottom = 33.0
+custom_fonts/font = SubResource( 8 )
+text = "Поздравляю с прохождением!
+Спасибо за игру!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Start" type="Button" parent="GameEnd"]
+margin_left = -168.0
+margin_top = 120.0
+margin_bottom = 188.0
+rect_scale = Vector2( 2, 2 )
+focus_mode = 0
+custom_fonts/font = SubResource( 9 )
+enabled_focus_mode = 0
+icon = ExtResource( 9 )
+flat = true
+icon_align = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Exit" type="Button" parent="GameEnd"]
+margin_left = -88.0
+margin_top = 384.0
+margin_right = 88.0
+margin_bottom = 456.0
+focus_mode = 0
+custom_fonts/font = SubResource( 10 )
+enabled_focus_mode = 0
+icon = ExtResource( 8 )
+flat = true
+icon_align = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[connection signal="area_entered" from="." to="." method="_on_PlayerBody_area_entered"]
+[connection signal="movement_side" from="Body/PlayerEye" to="PlayerNeedles" method="_on_PlayerEye_movement_side"]
+[connection signal="pressed" from="GameOver/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="GameOver/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="GameEnd/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="GameEnd/Exit" to="." method="_on_Exit_pressed"]

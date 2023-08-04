@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/components/enemy_basic/field_view/EnemyFieldView.gd" type="Script" id=1]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 512.063
+
+[node name="EnemyFieldView" type="Area2D"]
+collision_layer = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 1 )
+
+[node name="ToggleScope" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="MonitorsThePlayer" type="Area2D" parent="."]
+collision_layer = 0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Collision" type="CollisionShape2D" parent="MonitorsThePlayer"]
+visible = false
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[connection signal="area_entered" from="." to="." method="_on_EnemyFieldView_area_entered"]
+[connection signal="timeout" from="ToggleScope" to="." method="_on_ToggleScope_timeout"]
+[connection signal="area_entered" from="MonitorsThePlayer" to="." method="_on_MonitorsThePlayer_area_entered"]
+[connection signal="area_exited" from="MonitorsThePlayer" to="." method="_on_MonitorsThePlayer_area_exited"]

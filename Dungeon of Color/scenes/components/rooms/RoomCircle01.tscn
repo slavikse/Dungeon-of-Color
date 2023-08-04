@@ -1,0 +1,319 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/components/rooms/scripts/Room.gd" type="Script" id=1]
+[ext_resource path="res://scenes/components/weapon/Weapon.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/components/rooms/audios/electric-screwdriver.wav" type="AudioStream" id=3]
+[ext_resource path="res://scenes/components/walls/destructable/DestructableWall.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/components/rooms/enemies/EnemySpawn.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/components/walls/stone/StoneWall.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/components/weapon_turn/WeaponTurn.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/components/rooms/common/spawn_point/SpawnPoint.tscn" type="PackedScene" id=8]
+
+[node name="RoomSquare" type="Area2D"]
+collision_layer = 0
+collision_mask = 9
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": "Переворачивать нельзя!"
+}
+
+[node name="Collision" type="CollisionPolygon2D" parent="."]
+visible = false
+position = Vector2( 712, 668 )
+polygon = PoolVector2Array( -328, -700, -584, -700, -584, -460, -632, -460, -632, -220, -680, -220, -680, 20, -728, 20, -728, 212, -680, 212, -680, 452, -632, 452, -632, 692, -376, 692, -376, 740, 328, 740, 328, 692, 568, 692, 568, 436, 600, 436, 600, 180, 648, 180, 648, -44, 600, -44, 600, -300, 568, -300, 568, -668, 312, -668, 312, -700, 56, -700, 56, -748, -328, -748 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Walls" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="WallsDestructable" type="Node2D" parent="Walls"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="WallDestructable2" parent="Walls/WallsDestructable" instance=ExtResource( 4 )]
+position = Vector2( 752, 1456 )
+_color_index = 2
+
+[node name="WallDestructable3" parent="Walls/WallsDestructable" instance=ExtResource( 4 )]
+position = Vector2( 576, 624 )
+_color_index = 2
+
+[node name="WallDestructable22" parent="Walls/WallsDestructable" instance=ExtResource( 4 )]
+position = Vector2( 256, 896 )
+_color_index = 2
+
+[node name="WallDestructable23" parent="Walls/WallsDestructable" instance=ExtResource( 4 )]
+position = Vector2( 128, 896 )
+_color_index = 2
+
+[node name="WallDestructable14" parent="Walls/WallsDestructable" instance=ExtResource( 4 )]
+position = Vector2( 384, 1024 )
+rotation = 1.5708
+
+[node name="WallDestructable15" parent="Walls/WallsDestructable" instance=ExtResource( 4 )]
+position = Vector2( 384, 832 )
+rotation = 1.5708
+_color_index = 3
+
+[node name="WallDestructable4" parent="Walls/WallsDestructable" instance=ExtResource( 4 )]
+position = Vector2( 200, 496 )
+
+[node name="WallDestructable5" parent="Walls/WallsDestructable" instance=ExtResource( 4 )]
+position = Vector2( 624, 1456 )
+_color_index = 1
+
+[node name="WallDestructable9" parent="Walls/WallsDestructable" instance=ExtResource( 4 )]
+position = Vector2( 320, 384 )
+rotation = 1.5708
+_color_index = 1
+
+[node name="WallDestructable17" parent="Walls/WallsDestructable" instance=ExtResource( 4 )]
+position = Vector2( 384, 640 )
+rotation = 1.5708
+_color_index = 2
+
+[node name="WallDestructable11" parent="Walls/WallsDestructable" instance=ExtResource( 4 )]
+position = Vector2( 694, 208 )
+rotation = 1.5708
+_color_index = 1
+
+[node name="WallDestructable26" parent="Walls/WallsDestructable" instance=ExtResource( 4 )]
+position = Vector2( 1128, 264 )
+rotation = 1.5708
+_color_index = 1
+
+[node name="WallDestructable28" parent="Walls/WallsDestructable" instance=ExtResource( 4 )]
+position = Vector2( 896, 192 )
+_color_index = 3
+
+[node name="WallDestructable31" parent="Walls/WallsDestructable" instance=ExtResource( 4 )]
+position = Vector2( 568, 112 )
+_color_index = 1
+
+[node name="WallDestructable27" parent="Walls/WallsDestructable" instance=ExtResource( 4 )]
+position = Vector2( 1128, 416 )
+rotation = 1.5708
+
+[node name="WallDestructable12" parent="Walls/WallsDestructable" instance=ExtResource( 4 )]
+position = Vector2( 694, 336 )
+rotation = 1.5708
+_color_index = 2
+
+[node name="WallDestructable13" parent="Walls/WallsDestructable" instance=ExtResource( 4 )]
+position = Vector2( 256, 624 )
+_color_index = 3
+
+[node name="WallDestructable6" parent="Walls/WallsDestructable" instance=ExtResource( 4 )]
+position = Vector2( 1280, 304 )
+rotation = 1.5708
+_color_index = 3
+
+[node name="WallDestructable8" parent="Walls/WallsDestructable" instance=ExtResource( 4 )]
+position = Vector2( 320, 192 )
+rotation = 1.5708
+
+[node name="WallDestructable10" parent="Walls/WallsDestructable" instance=ExtResource( 4 )]
+position = Vector2( 1072, 824 )
+rotation = 1.5708
+
+[node name="WallDestructable16" parent="Walls/WallsDestructable" instance=ExtResource( 4 )]
+position = Vector2( 984, 1024 )
+rotation = 1.5708
+_color_index = 1
+
+[node name="WallDestructable7" parent="Walls/WallsDestructable" instance=ExtResource( 4 )]
+position = Vector2( 768, 624 )
+_color_index = 1
+
+[node name="WallDestructable29" parent="Walls/WallsDestructable" instance=ExtResource( 4 )]
+position = Vector2( 894, 1280 )
+_color_index = 1
+
+[node name="WallDestructable18" parent="Walls/WallsDestructable" instance=ExtResource( 4 )]
+position = Vector2( 1152, 624 )
+_color_index = 1
+
+[node name="WallDestructable21" parent="Walls/WallsDestructable" instance=ExtResource( 4 )]
+position = Vector2( 958, 624 )
+_color_index = 3
+
+[node name="WallDestructable20" parent="Walls/WallsDestructable" instance=ExtResource( 4 )]
+position = Vector2( 832, 768 )
+rotation = 1.5708
+_color_index = 3
+
+[node name="WallDestructable24" parent="Walls/WallsDestructable" instance=ExtResource( 4 )]
+position = Vector2( 512, 896 )
+rotation = 1.5708
+_color_index = 3
+
+[node name="WallDestructable25" parent="Walls/WallsDestructable" instance=ExtResource( 4 )]
+position = Vector2( 720, 896 )
+rotation = 1.5708
+_color_index = 3
+
+[node name="WallDestructable19" parent="Walls/WallsDestructable" instance=ExtResource( 4 )]
+position = Vector2( 832, 1024 )
+rotation = 1.5708
+_color_index = 2
+
+[node name="WallDestructable30" parent="Walls/WallsDestructable" instance=ExtResource( 4 )]
+position = Vector2( 704, 1216 )
+rotation = 1.5708
+_color_index = 2
+
+[node name="WallsStone" type="Node2D" parent="Walls"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="WallStone1" parent="Walls/WallsStone" instance=ExtResource( 6 )]
+position = Vector2( 256, -32 )
+
+[node name="WallStone2" parent="Walls/WallsStone" instance=ExtResource( 6 )]
+position = Vector2( 1152, 0 )
+
+[node name="WallStone3" parent="Walls/WallsStone" instance=ExtResource( 6 )]
+position = Vector2( 432, -80 )
+
+[node name="WallStone4" parent="Walls/WallsStone" instance=ExtResource( 6 )]
+position = Vector2( 896, -32 )
+
+[node name="WallStone5" parent="Walls/WallsStone" instance=ExtResource( 6 )]
+position = Vector2( 1280, 112 )
+rotation = 1.5708
+
+[node name="WallStone6" parent="Walls/WallsStone" instance=ExtResource( 6 )]
+position = Vector2( 1312, 496 )
+rotation = 1.5708
+
+[node name="WallStone7" parent="Walls/WallsStone" instance=ExtResource( 6 )]
+position = Vector2( 1360, 736 )
+rotation = 1.5708
+
+[node name="WallStone8" parent="Walls/WallsStone" instance=ExtResource( 6 )]
+position = Vector2( 1312, 976 )
+rotation = 1.5708
+
+[node name="WallStone11" parent="Walls/WallsStone" instance=ExtResource( 6 )]
+position = Vector2( 688, -80 )
+
+[node name="WallStone12" parent="Walls/WallsStone" instance=ExtResource( 6 )]
+position = Vector2( 870, 400 )
+
+[node name="WallStone13" parent="Walls/WallsStone" instance=ExtResource( 6 )]
+position = Vector2( 944, 1456 )
+
+[node name="WallStone19" parent="Walls/WallsStone" instance=ExtResource( 6 )]
+position = Vector2( 640, 1008 )
+
+[node name="WallStone25" parent="Walls/WallsStone" instance=ExtResource( 6 )]
+position = Vector2( 464, 1248 )
+rotation = 1.5708
+
+[node name="WallStone20" parent="Walls/WallsStone" instance=ExtResource( 6 )]
+position = Vector2( 432, 1456 )
+
+[node name="WallStone21" parent="Walls/WallsStone" instance=ExtResource( 6 )]
+position = Vector2( 208, 1408 )
+
+[node name="WallStone15" parent="Walls/WallsStone" instance=ExtResource( 6 )]
+position = Vector2( 32, 1248 )
+rotation = 1.5708
+
+[node name="WallStone22" parent="Walls/WallsStone" instance=ExtResource( 6 )]
+position = Vector2( -16, 1008 )
+rotation = 1.5708
+
+[node name="WallStone23" parent="Walls/WallsStone" instance=ExtResource( 6 )]
+position = Vector2( -16, 560 )
+rotation = 1.5708
+
+[node name="WallStone24" parent="Walls/WallsStone" instance=ExtResource( 6 )]
+position = Vector2( -64, 784 )
+rotation = 1.5708
+
+[node name="WallStone16" parent="Walls/WallsStone" instance=ExtResource( 6 )]
+position = Vector2( 1280, 1232 )
+rotation = 1.5708
+
+[node name="WallStone17" parent="Walls/WallsStone" instance=ExtResource( 6 )]
+position = Vector2( 32, 320 )
+rotation = 1.5708
+
+[node name="WallStone18" parent="Walls/WallsStone" instance=ExtResource( 6 )]
+position = Vector2( 80, 80 )
+rotation = 1.5708
+
+[node name="WallStone14" parent="Walls/WallsStone" instance=ExtResource( 6 )]
+position = Vector2( 1168, 1408 )
+
+[node name="WeaponsTurn" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="WeaponTurn1" parent="WeaponsTurn" instance=ExtResource( 7 )]
+position = Vector2( 640, 896 )
+
+[node name="Weapons" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Weapon1" parent="Weapons" instance=ExtResource( 2 )]
+position = Vector2( 208, 344 )
+
+[node name="Weapon2" parent="Weapons" instance=ExtResource( 2 )]
+position = Vector2( 216, 1268 )
+
+[node name="EnemySpawn" parent="." instance=ExtResource( 5 )]
+
+[node name="SpawnPoint1" parent="EnemySpawn" instance=ExtResource( 8 )]
+position = Vector2( 224, 96 )
+
+[node name="SpawnPoint2" parent="EnemySpawn" instance=ExtResource( 8 )]
+position = Vector2( 870, 288 )
+
+[node name="SpawnPoint7" parent="EnemySpawn" instance=ExtResource( 8 )]
+position = Vector2( 536, 264 )
+
+[node name="SpawnPoint6" parent="EnemySpawn" instance=ExtResource( 8 )]
+position = Vector2( 640, 736 )
+
+[node name="SpawnPoint4" parent="EnemySpawn" instance=ExtResource( 8 )]
+position = Vector2( 1104, 1192 )
+
+[node name="SpawnPoint3" parent="EnemySpawn" instance=ExtResource( 8 )]
+position = Vector2( 160, 736 )
+
+[node name="SpawnPoint5" parent="EnemySpawn" instance=ExtResource( 8 )]
+position = Vector2( 288, 1112 )
+
+[node name="Enemies" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="FogOfWar" type="Polygon2D" parent="."]
+visible = false
+z_index = 1
+color = Color( 0.0666667, 0.0666667, 0.0666667, 0.784314 )
+polygon = PoolVector2Array( 128, -32, 384, -32, 384, -80, 768, -80, 768, -32, 1024, -32, 1024, 0, 1280, 0, 1280, 368, 1312, 368, 1312, 624, 1360, 624, 1360, 848, 1312, 848, 1312, 1104, 1280, 1104, 1280, 1360, 1040, 1360, 1040, 1408, 336, 1408, 336, 1360, 80, 1360, 80, 1120, 32, 1120, 32, 880, -16, 880, -16, 688, 32, 688, 32, 448, 80, 448, 80, 208, 128, 208 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CreateEnemies" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -20.0
+pitch_scale = 2.0
+
+[connection signal="area_entered" from="." to="." method="_on_Room_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_Room_area_exited"]
+[connection signal="rotate_right" from="WeaponsTurn/WeaponTurn1" to="." method="_on_WeaponTurn_rotate_right"]

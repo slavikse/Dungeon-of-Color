@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/levels/level_01/audios/ambient.ogg" type="AudioStream" id=1]
+
+[node name="GAmbient" type="Node2D"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Ambient" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 1 )
+autoplay = true

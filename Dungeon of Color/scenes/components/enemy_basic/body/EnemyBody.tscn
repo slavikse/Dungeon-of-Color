@@ -1,0 +1,143 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://scenes/components/enemy_basic/body/EnemyBody.gd" type="Script" id=1]
+[ext_resource path="res://scenes/components/enemy_basic/body/scripts/degree_target.gd" type="Script" id=2]
+[ext_resource path="res://scenes/components/enemy_basic/body/scripts/velocity_direction.gd" type="Script" id=3]
+[ext_resource path="res://scenes/components/enemy_basic/body/needle/EnemyNeedles.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/components/enemy_basic/body/audios/stomp.wav" type="AudioStream" id=5]
+[ext_resource path="res://scenes/components/enemy_basic/body/audios/angry.wav" type="AudioStream" id=6]
+[ext_resource path="res://scenes/components/enemy_basic/body/textures/enemy.png" type="Texture" id=7]
+[ext_resource path="res://scenes/components/enemy_basic/body/textures/eye.png" type="Texture" id=8]
+[ext_resource path="res://scenes/components/enemy_basic/body/textures/eye_evil.png" type="Texture" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 32 )
+
+[node name="EnemyBody" type="Area2D"]
+collision_layer = 8
+collision_mask = 38
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_editor_description_": "Для определения пересечения с объектами Area2D."
+}
+_velocity_direction_script = ExtResource( 3 )
+_degree_target_script = ExtResource( 2 )
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="EnemyNeedles" parent="." instance=ExtResource( 4 )]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Body" type="Polygon2D" parent="."]
+color = Color( 1, 1, 1, 0 )
+polygon = PoolVector2Array( -32, -24, -32, 24, -24, 32, 24, 32, 32, 24, 32, -24, 24, -32, -24, -32 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Enemy" type="Sprite" parent="Body"]
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Kind" type="Node2D" parent="Body"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="EyeLeft" type="Polygon2D" parent="Body/Kind"]
+color = Color( 0, 0, 0, 0 )
+polygon = PoolVector2Array( -24, -24, -24, -16, -8, -16, -8, -24 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Eye" type="Sprite" parent="Body/Kind/EyeLeft"]
+position = Vector2( -16, -20 )
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="EyeRight" type="Polygon2D" parent="Body/Kind"]
+position = Vector2( 40, 0 )
+color = Color( 0, 0, 0, 0 )
+polygon = PoolVector2Array( -32, -24, -32, -16, -16, -16, -16, -24 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Eye" type="Sprite" parent="Body/Kind/EyeRight"]
+position = Vector2( -24, -20 )
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Evil" type="Node2D" parent="Body"]
+visible = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="EyeLeft" type="Polygon2D" parent="Body/Evil"]
+color = Color( 0, 0, 0, 0 )
+polygon = PoolVector2Array( -24, -24, -24, -8, -8, -16, -16, -24 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="EyeEvil" type="Sprite" parent="Body/Evil/EyeLeft"]
+position = Vector2( -16, -16 )
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="EyeRight" type="Polygon2D" parent="Body/Evil"]
+position = Vector2( 40, 0 )
+color = Color( 0, 0, 0, 0 )
+polygon = PoolVector2Array( -24, -24, -32, -16, -16, -8, -16, -24 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="EyeEvil" type="Sprite" parent="Body/Evil/EyeRight"]
+position = Vector2( -24, -16 )
+scale = Vector2( -1, 1 )
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ChangeDirection" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="Stomp" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+volume_db = -16.0
+pitch_scale = 10.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Angry" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+volume_db = -2.0
+pitch_scale = 0.8
+__meta__ = {
+"_edit_lock_": true
+}
+
+[connection signal="area_entered" from="." to="." method="_on_EnemyBody_area_entered"]
+[connection signal="timeout" from="ChangeDirection" to="." method="_on_ChangeDirection_timeout"]

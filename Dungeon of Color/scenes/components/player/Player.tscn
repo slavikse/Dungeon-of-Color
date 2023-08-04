@@ -1,0 +1,106 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://scenes/components/player/Player.gd" type="Script" id=1]
+[ext_resource path="res://scenes/components/player/weapon/PlayerWeapon.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/components/player/body/PlayerBody.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/components/player/jump/PlayerJump.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/components/player/scripts/movement.gd" type="Script" id=5]
+[ext_resource path="res://scenes/components/player/scripts/weapon_rotate.gd" type="Script" id=6]
+[ext_resource path="res://scenes/components/player/audios/rotating-switch.wav" type="AudioStream" id=7]
+[ext_resource path="res://scenes/components/player/interpolate/PlayerRotation.tscn" type="PackedScene" id=8]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 24, 8 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 8, 24 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 24, 8 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 8, 24 )
+
+[node name="Player" type="KinematicBody2D"]
+collision_mask = 12
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_editor_description_": "Collision для блокирования пути стенами."
+}
+_movement_script = ExtResource( 5 )
+_weapon_rotate_script = ExtResource( 6 )
+
+[node name="CollisionUp" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -8, -24 )
+shape = SubResource( 3 )
+disabled = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionRight" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 24, -8 )
+shape = SubResource( 4 )
+disabled = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionDown" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 8, 24 )
+shape = SubResource( 5 )
+disabled = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionLeft" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -24, 8 )
+shape = SubResource( 6 )
+disabled = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Collision" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( 16, -11, 16, 11, 11, 16, -11, 16, -16, 11, -16, -11, -11, -16, 11, -16 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Camera" type="Camera2D" parent="."]
+current = true
+process_mode = 0
+limit_smoothed = true
+smoothing_enabled = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PlayerBody" parent="." instance=ExtResource( 3 )]
+
+[node name="PlayerJump" parent="." instance=ExtResource( 4 )]
+
+[node name="PlayerWeapon" parent="." instance=ExtResource( 2 )]
+visible = false
+
+[node name="PlayerRotation" parent="." instance=ExtResource( 8 )]
+
+[node name="WeaponRotate" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+pitch_scale = 0.6
+__meta__ = {
+"_edit_lock_": true
+}
+
+[connection signal="deactivate" from="PlayerWeapon" to="." method="_on_PlayerWeapon_deactivate"]
+[connection signal="is_needles_active" from="PlayerWeapon" to="PlayerBody" method="_on_PlayerWeapon_is_needles_active"]
+[connection signal="rotate_right" from="PlayerWeapon" to="." method="_on_PlayerWeapon_rotate_right"]

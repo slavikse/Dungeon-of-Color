@@ -1,0 +1,91 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/components/player/weapon/gun/PlayerGun.gd" type="Script" id=1]
+[ext_resource path="res://scenes/components/player/weapon/gun/scripts/shot_side.gd" type="Script" id=2]
+[ext_resource path="res://scenes/components/player/weapon/gun/shot/PlayerShot.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/components/player/weapon/gun/scripts/velocity.gd" type="Script" id=4]
+[ext_resource path="res://scenes/components/enemy_basic/audios/destroyed.wav" type="AudioStream" id=5]
+[ext_resource path="res://scenes/components/player/weapon/gun/textures/gun.png" type="Texture" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 24 )
+
+[sub_resource type="ParticlesMaterial" id=2]
+emission_shape = 2
+emission_box_extents = Vector3( 8, 23, 1 )
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 4.0
+scale_random = 0.2
+
+[node name="PlayerGun" type="Area2D"]
+collision_layer = 16
+collision_mask = 34
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_editor_description_": "Для определения пересечения с объектами Area2D.
+"
+}
+_shot_side_script = ExtResource( 2 )
+_velocity_script = ExtResource( 4 )
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0, -8 )
+shape = SubResource( 1 )
+disabled = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PlayerShot" parent="." instance=ExtResource( 3 )]
+
+[node name="Body" type="Polygon2D" parent="."]
+color = Color( 1, 1, 1, 0 )
+polygon = PoolVector2Array( -8, -28, -8, 12, -12, 16, 4, 16, 8, 8, -5, 0, 8, -8, 4, -16, 8, -32 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Gun" type="Polygon2D" parent="Body"]
+color = Color( 1, 1, 1, 0 )
+polygon = PoolVector2Array( 3, -2, 0, -4, -6, 0, 0, 4, 3, 2, 2, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Gun2" type="Sprite" parent="Body"]
+position = Vector2( 0, -8 )
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Destroy" type="Particles2D" parent="."]
+position = Vector2( 0, -8 )
+emitting = false
+amount = 40
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+local_coords = false
+process_material = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Destroyed" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+volume_db = -20.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[connection signal="area_entered" from="." to="." method="_on_PlayerGun_area_entered"]
+[connection signal="is_cooldown" from="PlayerShot" to="." method="_on_PlayerShot_is_cooldown"]

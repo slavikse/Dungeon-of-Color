@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/components/player/weapon/gun/textures/gun.png" type="Texture" id=1]
+[ext_resource path="res://scenes/components/walls/common/CommonWall.tscn" type="PackedScene" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 24 )
+
+[node name="WeaponGun" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0, -8 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="GunBase" type="Polygon2D" parent="."]
+color = Color( 1, 1, 1, 0 )
+polygon = PoolVector2Array( -8, -28, -8, 12, -12, 16, 4, 16, 8, 8, -5, 0, 8, -8, 4, -16, 8, -32 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="GunShoot" type="Polygon2D" parent="GunBase"]
+color = Color( 1, 1, 1, 0 )
+polygon = PoolVector2Array( 3, -2, 0, -4, -6, 0, 0, 4, 3, 2, 2, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Gun" type="Sprite" parent="GunBase"]
+position = Vector2( 0, -8 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CommonWall" parent="." instance=ExtResource( 2 )]
+visible = false
+position = Vector2( -8, -8 )
+rotation = 1.5708
+scale = Vector2( 0.187, 0.332 )

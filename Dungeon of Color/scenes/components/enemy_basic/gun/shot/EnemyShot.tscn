@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/components/enemy_basic/gun/shot/EnemyShot.gd" type="Script" id=1]
+[ext_resource path="res://scenes/components/common/bullet/CommonBullet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/components/player/weapon/gun/scripts/velocity.gd" type="Script" id=3]
+[ext_resource path="res://scenes/components/enemy_basic/body/scripts/degree_target.gd" type="Script" id=4]
+
+[sub_resource type="ParticlesMaterial" id=1]
+emission_shape = 1
+emission_sphere_radius = 2.0
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 60.0
+flatness = 0.5
+gravity = Vector3( 100, 0, 0 )
+initial_velocity = 100.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 100.0
+scale = 3.0
+
+[node name="EnemyShot" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+_velocity_script = ExtResource( 3 )
+_degree_target_script = ExtResource( 4 )
+_common_bullet_scene = ExtResource( 2 )
+
+[node name="BulletDirection" type="Position2D" parent="."]
+position = Vector2( 24, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Fired" type="Particles2D" parent="."]
+position = Vector2( 8, 0 )
+emitting = false
+amount = 10
+lifetime = 0.1
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
